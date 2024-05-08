@@ -44,36 +44,42 @@ echo \ "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/doc
 #### 패키지 업데이트
 
 
+```
 sudo apt-get update
+```
 
 
 #### Docker Engine 및 Container Runtime 구성 요소 설치
 
 
+```
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
+```
 
 
 ## kubernetes 구성요소 설치 (패키지 업데이트 및 필수 전체 패키지 설치)
 
 
+```
 sudo apt-get update
-
-
 sudo apt-get install -y apt-transport-https ca-certificates curl
+```
 
 
 #### Google Cloud 공개 서명 키 다운로드
 
 
+```
 curl -fsSL https://dl.k8s.io/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
+```
 
 
 #### k8s 레포지토리 추가
 
 
+```
 echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-
+```
 
 #### 패키지 업데이트 후 kubeadm, kubectl, kubelet 설치
 
@@ -84,27 +90,31 @@ echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://a
 ##### 기존 Kubernetes 소스 리스트 파일 삭제 또는 변경
 
 
+```
 sudo rm /etc/apt/sources.list.d/kubernetes.list
+```
 
 
 #### Kubernetes 소스 리스트를 다시 추가
 
 
+```
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-
-
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+```
 
 #### 패키지 리스트 업데이트
 
-
+```
 sudo apt-get update
-
+```
 
 #### 다운로드
 
 
+```
 sudo apt-get install -y kubelet kubeadm kubectl
+```
 
 
 #### containerd 구성 파일 생성

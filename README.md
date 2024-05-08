@@ -42,6 +42,7 @@ echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://a
 9) 패키지 업데이트 후 kubeadm, kubectl, kubelet 설치
 
 => 패키지 저장소 업데이트가 안됨(URL 변경)
+
 # 기존 Kubernetes 소스 리스트 파일 삭제 또는 변경
 sudo rm /etc/apt/sources.list.d/kubernetes.list
 
@@ -90,10 +91,9 @@ systemctl restart kubelet
 
 kubeadm init
 
-#####
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 ## CNI 설치
 

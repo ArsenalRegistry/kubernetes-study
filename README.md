@@ -38,13 +38,7 @@ sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
 
 #### Docker 레포지토리 설정
-echo \ "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-
-
-  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
-
-  
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+echo \ "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 
 #### 컨테이너 런타임 구성요소 설치

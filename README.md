@@ -130,7 +130,9 @@ containerd config default | tee /etc/containerd/config.toml
 #### vim을 통해 config 파일 오픈
 
 
+```
 vim /etc/containerd/config.toml
+```
 
 
 # config.toml
@@ -177,10 +179,12 @@ vim /etc/containerd/config.toml
 
 #### 편집한 내용을 저장 후 containerd 데몬과 kubelet 데몬을 재시작하여 변경사항을 반영
 
+
+```
 systemctl restart containerd
-
-
 systemctl restart kubelet
+```
+
 
 #### Masternode control plane 구성
 
@@ -188,13 +192,18 @@ systemctl restart kubelet
 #### kubeadm init 명령어 결과로 나온 join 명령어 저장 필수 => 이후 Wokrer Node 조인에서 사용
 
 
+```
 kubeadm init
+```
 
 
+```
 mkdir -p $HOME/.kube
+```
 
-
+```
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+```
 
 
 ```
@@ -206,13 +215,17 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 #### CNI 설치
 
 
+```
 kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+```
 
 
 #### Master 노드 설치 확인
 
 
+```
 kubectl get nodes
+```
 
 
 # Worker Node에서는 kubeadm init 전까지 진행하고 아래 조인 명령어 입력
@@ -224,7 +237,7 @@ kubeadm join 10.100.0.105:6443 --token 2h0fum.jea9l5knwfn593sz --discovery-token
 kubectl get nodes로 Master Node Ready 상태 확인
 
 
-Worker Node(10.100.0.106 에서 진행)
+# Worker Node(10.100.0.106 에서 진행)
 
 
 위에 순서대로 kubeadm init 전까지 진행하고

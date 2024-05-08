@@ -1,16 +1,33 @@
-# Master Node(10.100.0.105 에서 진행)
+# Master Node에 Kubernetes 설치(10.100.0.105 에서 진행)
 
-0) Swap disabled
+
+
+#### Swap disabled
+
+
 swapoff -a && sed -i '/swap/s/^/#/' /etc/fstab
 
-1) docker 삭제
+
+#### docker 삭제
+
+
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
 
-2) 컨테이너 런타임 설치
+
+
+#### 컨테이너 런타임 설치
+
+
 sudo apt-get update
+
+
 sudo apt-get install ca-certificates curl gnupg
 
-3) Docker GPG 키 추가
+
+
+#### Docker GPG 키 추가
+
+
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
@@ -23,10 +40,10 @@ echo \
 
 5) 컨테이너 런타임 구성요소 설치
 
-# 패키지 업데이트
+### 패키지 업데이트
 sudo apt-get update
 
-# Docker Engine 및 Container Runtime 구성 요소 설치
+### Docker Engine 및 Container Runtime 구성 요소 설치
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 6) kubernetes 구성요소 설치 (패키지 업데이트 및 필수 전체 패키지 설치)

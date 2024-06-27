@@ -189,7 +189,7 @@ systemctl restart kubelet
 #### Masternode control plane 구성
 
 
-#### kubeadm init 명령어 결과로 나온 join 명령어 저장 필수 => 이후 Wokrer Node 조인에서 사용
+#### **kubeadm init 명령어 결과로 나온 join 명령어 저장 필수 => 이후 Wokrer Node 조인에서 사용**
 
 
 ```

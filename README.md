@@ -123,9 +123,9 @@ sudo apt-get install -y kubelet kubeadm kubectl
 
 #### containerd 구성 파일 생성
 
-
+```
 containerd config default | tee /etc/containerd/config.toml
-
+```
 
 #### vim을 통해 config 파일 오픈
 

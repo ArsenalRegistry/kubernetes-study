@@ -187,7 +187,7 @@ systemctl restart kubelet
 
 
 #### Masternode control plane 구성
-
+##### Worker Node에서는 kubeadm init 전까지 진행하고 Masternode 구성 진행 중 복사해놓은 join 명령어 입력
 
 #### **kubeadm init 명령어 결과로 나온 join 명령어 저장 필수 => 이후 Wokrer Node 조인에서 사용**
 

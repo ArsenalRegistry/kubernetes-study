@@ -191,7 +191,10 @@ systemctl restart kubelet
 ### 아래 코드 진행하지 않기 (kubeadm init ~ kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml)
 
 
-#### Masternode control plane 구성
+
+
+
+### Masternode control plane 구성
 #### **kubeadm init 명령어 결과로 나온 join 명령어 저장 필수 => 이후 Wokrer Node 조인에서 사용**
 
 

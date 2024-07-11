@@ -9,7 +9,7 @@ spec:
   template:
     metadata:
         name: nginx-pod
-        labes:
+        labels:
           app: webui
     spec:
       containers:
